@@ -25,8 +25,8 @@ def index():
     db = firestore.Client()
     users_ref = db.collection('people')
     docs = users_ref.stream()
-    people = [doc.to_dict() for doc in docs]
-    return jsonify(people)
+    people = {'people' : [doc.to_dict() for doc in docs]}
+    return jsonify(people), 200
 
 if __name__ == '__main__':
     app.run(debug=True, host='127.0.0.1', port=8080)
