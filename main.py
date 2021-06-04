@@ -20,7 +20,7 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/get')
 def index():
     db = firestore.Client()
     users_ref = db.collection('people')
